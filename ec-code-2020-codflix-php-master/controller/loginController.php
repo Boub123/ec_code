@@ -30,9 +30,20 @@ function login( $post ) {
   $data           = new stdClass();
   $data->email    = $post['email'];
   $data->password = $post['password'];
+  //password rehashing to get a match with current password for connect
+  $data->password = hash('sha256', $post['password']);
 
   $user           = new User( $data );
   $userData       = $user->getUserByEmail();
+
+    $user = null;
+    $userData = null;
+    // mail verification
+    if (preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/i", $post['email']))
+    {
+        $user           = new User( $data );
+        $userData       = $user->getUserByEmail();
+    }
 
   $error_msg      = "Email ou mot de passe incorrect";
 
