@@ -47,7 +47,9 @@ function login( $post ) {
 
   $error_msg      = "Email ou mot de passe incorrect";
 
-  if( $userData && sizeof( $userData ) != 0 ):
+  /*
+
+   if( $userData && sizeof( $userData ) != 0 ):
     if( $user->getPassword() == $userData['password'] ):
 
       // Set session
@@ -56,6 +58,24 @@ function login( $post ) {
       header( 'location: index.php ');
     endif;
   endif;
+  */
+  
+    if( $userData && sizeof( $userData ) != 0 ) // If the user exists.
+    {
+        if( $user->getPassword() == $userData['password'] ) // If the input password matches with the password in DB.
+        {
+            if($userData['active'] != 'N') // If user's account is activated.
+            {
+                // Set session
+                $_SESSION['user_id'] = $userData['id'];
+                header( 'location: index.php ');
+            }
+            else // If the user has not activated his account, yet.
+            {
+                $error_msg = "Votre compte n'est pas activé. Veuillez cliquer sur le lien envoyé par mail lors de votre inscription.";
+            }
+        }
+    }
 
   require('view/auth/loginView.php');
 }

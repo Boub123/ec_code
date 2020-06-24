@@ -16,7 +16,7 @@
                 <div class="col-md-6"><a href="index.php?action=signup" class="btn btn-block bg-blue">Inscription</a></div>
             </div>
         </div>
-        <a href="index.php?action=contact" class="btn bg-red btn-contact"></a>
+        <div class="col-md-6"><a href="index.php?action=contact" class="btn bg-red btn-contact align-items-center">contact</a></div>
     </div>
 </div>
 

@@ -69,7 +69,7 @@ function signUp($post)
             $user->setEmail($email);
             $user->setPassword($password);
             $user->createUser();
-            $success_msg = "Votre inscription s'est déroulée avec succès.";
+            $success_msg = "Votre inscription s'est déroulée avec succès, vous allez recevoir un mail d'activation.";
         }
 
     }

@@ -83,12 +83,39 @@ class User {
       'email'     => $this->getEmail(),
       'password'  => $this->getPassword()
     ));
+    //get data of user
+    $getUser = $this->getUserByEmail();
+
+    //gener random keys
+      $token = md5(microtime(TRUE)*10000);
+      //token insertion
+      $req = $db->prepare("INSERT INTO cles (user_id, cles) VALUES(:userId, :cles)");
+      $req->execute(array(
+          'userId' => $getUser['id'],
+          'cles' => $token
+      ));
+
+      //send validation mail with an url
+      $this->sendMailValidation($token, $getUser['email']);
 
     // Close databse connection
     $db = null;
 
   }
 
+  //sendmailvalidation function
+    function sendMailValidation($token, $userMail)
+    {
+        $userMail = $userMail;
+        $subject = "Confirmation de votre mail";
+        $header = "Codflix";
+        $message = 'Codflix a le plaisir de vous compter parmis ses membres !
+        Veuillez cliquer sur le lien ci-dessous afin d\'activer votre compte :
+        http://localhost/ec_code/ec-code-2020-codflix-php/index.php?token='.$token.'
+        A très vite sur Codflix';
+        //check php.ini to use mail().
+        // mail($userMail, $subject, $message, $header);
+    }
   /**************************************
   * -------- GET USER DATA BY ID --------
   ***************************************/
@@ -107,10 +134,7 @@ class User {
     return $req->fetch();
   }
 
-  /***************************************
-  * ------- GET USER DATA BY EMAIL -------
-  ****************************************/
-
+  // GET USER DATA BY EMAIL
   public function getUserByEmail() {
 
     // Open database connection
