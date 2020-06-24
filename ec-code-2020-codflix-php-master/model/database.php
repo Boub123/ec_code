@@ -12,8 +12,9 @@ function init_db() {
     $charset  = 'utf8';
     $user     = 'root';
     $password = '';
+    $port = '3308';
 
-    $db = new PDO( "mysql:host=$host;dbname=$dbname;charset=$charset", $user, $password );
+    $db = new PDO( "mysql:host=$host;dbname=$dbname;port=$port;charset=$charset", $user, $password );
 
   } catch(Exception $e) {
 
