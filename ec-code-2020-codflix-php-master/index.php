@@ -4,6 +4,8 @@ require_once( 'controller/homeController.php' );
 require_once( 'controller/loginController.php' );
 require_once( 'controller/signupController.php' );
 require_once( 'controller/mediaController.php' );
+//add page
+require_once('controller/contactController.php');
 
 /**************************
 * ----- HANDLE ACTION -----
@@ -34,6 +36,9 @@ if ( isset( $_GET['action'] ) ):
 
     break;
 
+      case 'contact':
+          if(!empty($_POST)) contact($_POST);
+          else require('view/contactView.php');
   endswitch;
 
 else:
