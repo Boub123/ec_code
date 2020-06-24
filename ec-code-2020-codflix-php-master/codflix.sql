@@ -197,7 +197,11 @@ ALTER TABLE `cles`
 -- Constraints for table `media`
 --
 ALTER TABLE `cles`
-  ADD CONSTRAINT `cles_user_id_fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+  ADD CONSTRAINT `cles_user_id_fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE;
+
+
+ALTER TABLE `user`
+ADD active varchar(1 NOT NULL );
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
