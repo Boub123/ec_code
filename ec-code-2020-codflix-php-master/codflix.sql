@@ -168,6 +168,36 @@ ALTER TABLE `history`
   ADD CONSTRAINT `history_media_id_fk_media_id` FOREIGN KEY (`media_id`) REFERENCES `media` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `history_user_id_fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
+/*add new colone cles and actif to user*/
+
+--
+-- Table structure for table `cles`
+--
+DROP TABLE IF EXISTS `cles`;
+CREATE TABLE `cles` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `token` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Indexes for table `cles`
+--
+ALTER TABLE `cles`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cles_user_id_fk_user_id` (`user_id`);
+
+--
+-- AUTO_INCREMENT for table `cles`
+--
+ALTER TABLE `cles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for table `media`
+--
+ALTER TABLE `cles`
+  ADD CONSTRAINT `cles_user_id_fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
