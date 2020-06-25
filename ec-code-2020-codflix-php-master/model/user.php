@@ -104,12 +104,14 @@ class User {
 
   }
 
-  //sendmailvalidation function
+  //sendmail validation function
     function sendMailValidation($token, $userMail)
     {
         $userMail = $userMail;
         $subject = "Confirmation de votre mail";
+
         $header = "Codflix";
+
         $message = 'Codflix a le plaisir de vous compter parmis ses membres !
         Veuillez cliquer sur le lien ci-dessous afin d\'activer votre compte :
         http://localhost/ec_code/ec-code-2020-codflix-php/index.php?token='.$token.'
@@ -120,7 +122,7 @@ class User {
   /**************************************
   * -------- GET USER DATA BY ID --------
   ***************************************/
-
+// get users by id
   public static function getUserById( $id ) {
 
     // Open database connection
@@ -135,7 +137,7 @@ class User {
     return $req->fetch();
   }
 
-  // GET USER DATA BY EMAIL
+  // get user data by mail
   public function getUserByEmail() {
 
     // Open database connection
@@ -149,7 +151,7 @@ class User {
 
     return $req->fetch();
   }
-
+//function to update a user account
     public function updateUser() {
         $db   = init_db();
         $req  = $db->prepare( "UPDATE user SET email = :email, password = :password WHERE id = :id;" );
@@ -161,6 +163,7 @@ class User {
         // Close databse connection
         $db   = null;
     }
+    // function delete user
     public function deleteUser() {
         $db   = init_db();
         $req  = $db->prepare( "DELETE FROM user WHERE id = ?" );

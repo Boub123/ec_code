@@ -52,7 +52,9 @@ class Media {
   * -------- GETTERS ---------
   ***************************/
 
-  public function getId() {
+  /*
+
+   public function getId() {
     return $this->id;
   }
 
@@ -64,9 +66,9 @@ class Media {
     return $this->title;
   }
 
-  public function getType() {
-    return $this->type;
-  }
+    public function getType() {
+        return $this->type;
+    }
 
   public function getStatus() {
     return $this->status;
@@ -83,13 +85,14 @@ class Media {
   public function getTrailerUrl() {
     return $this->trailer_url;
   }
-
+*/
   /***************************
   * -------- GET LIST --------
   ***************************/
-
+//getters for medias
   //public static function filterMedias( $title ) {
-  public static function getMediasByTitle( $title ) {
+  public static function getMediasByTitle( $title )
+  {
 
     // Open database connection
     $db   = init_db();

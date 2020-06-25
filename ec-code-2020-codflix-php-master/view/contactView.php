@@ -18,7 +18,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <input type="submit" name="Valider" class="btn btn-block bg-red" />
+                                        <input type="submit" name="Valider" class="btn btn-block bg-danger" />
                                     </div>
                                 </div>
                             </div>

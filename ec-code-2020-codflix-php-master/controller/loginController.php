@@ -26,7 +26,6 @@ function loginPage() {
 ***************************/
 
 function login( $post ) {
-
   $data           = new stdClass();
   $data->email    = $post['email'];
   $data->password = $post['password'];
@@ -48,7 +47,6 @@ function login( $post ) {
   $error_msg      = "Email ou mot de passe incorrect";
 
   /*
-
    if( $userData && sizeof( $userData ) != 0 ):
     if( $user->getPassword() == $userData['password'] ):
 

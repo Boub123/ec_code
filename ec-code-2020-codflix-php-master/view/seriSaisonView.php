@@ -8,12 +8,9 @@ $season = $_GET["var5"];
 $title = $_GET["var1"];
 //echo $saison;
 $dsn = "mysql:host=$host;dbname=$dbname;port=3308";
-// récupérer tous les utilisateurs
+// get all series in the clause
 //$sql = "SELECT * FROM serie";
 $sql = "SELECT * FROM serie WHERE season ='".$season."' AND title LIKE '%{$title}%' ";
-//$sql = "SELECT * FROM serie WHERE saison ='1'";
-//$sql = "SELECT * FROM serie WHERE  se='Mexico'";
-;
 try{
     $pdo = new PDO($dsn, $username, $password);
     $stmt = $pdo->query($sql);
@@ -74,7 +71,7 @@ try{
                     <div class="card-body">
                         <h5 class="card-title"><?php echo htmlspecialchars($row['title']); ?></h5>
                         <p class="card-text"><?php echo htmlspecialchars($row['summary']); ?></p>
-                        <p class="card-text"><small class="text-muted"> Episode : <?php echo htmlspecialchars($row['episode']); ?></small></p>
+                        <p class="card-text"><small class="text-muted">Saison : <?php echo htmlspecialchars($row['season']); ?> Episode : <?php echo htmlspecialchars($row['episode']); ?></small></p>
                     </div>
                 </div>
             <?php endwhile; ?>

@@ -1,6 +1,6 @@
 <?php
 require_once( 'database.php' );
-// Check if a specific token exists.
+// Check key for account validation.
 function getTokenByToken($token) {
     // Open database connection
     $db   = init_db();

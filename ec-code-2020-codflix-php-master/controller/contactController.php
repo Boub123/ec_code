@@ -1,5 +1,5 @@
 <?php
-//file to send mail
+//function to contact us
 function contact($post){
     $email = $post['email'];
     $message = $post['message'];
@@ -19,7 +19,7 @@ function contact($post){
 
     require('view/contactView.php');
 }
-//send mail
+// function to send mail
 function sendMail($senderMail, $message)
 {
     $MailSubject ="Contact via formulaire";

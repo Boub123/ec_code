@@ -1,6 +1,6 @@
 <?php
 require_once( 'model/token.php' );
-
+//function to valide mail with a key system...
 function tokenPage() {
     $token = $_GET['token'];
     $response = getTokenByToken($token);

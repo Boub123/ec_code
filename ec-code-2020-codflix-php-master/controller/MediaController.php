@@ -16,7 +16,7 @@ function mediaPage() {
 
 
 }
-//search amelioration...
+//function for list media and search by title, genre, release_date or type
 function listMedia()
 {
     $search = isset( $_GET['title'] ) ? $_GET['title'] : null;
@@ -69,7 +69,7 @@ function listMedia()
     require_once('view/mediaListView.php');
 }
 
-//list details of medias, and series
+// function to list details of medias, and series
 function details(){
     $media = Media::details($_GET['media']);
     $getGenre = Media::getGenreById($media['genre_id']);
@@ -91,7 +91,8 @@ function details(){
     }
     require('view/detailsMediasView.php');
     $detailStream = false;
-    /*//try to catch number of saison and episode
+
+    /*//try to catch number of saison and episode but do another way...
     if($media['type'] == 'série')
     {
         $seasons = Media::getsaisonsByMediaId($media['id']);

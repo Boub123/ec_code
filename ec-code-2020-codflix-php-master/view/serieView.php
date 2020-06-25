@@ -6,7 +6,7 @@ $username = 'root';
 $password = '';
 
 $dsn = "mysql:host=$host;dbname=$dbname;port=3308";
-// récupérer tous les utilisateurs
+// fetchall...
 $sql = "SELECT * FROM serie";
 try{
     $pdo = new PDO($dsn, $username, $password);
