@@ -1,4 +1,5 @@
 <?php ob_start(); ?>
+
     <div class="landscape">
         <div class="bg-black">
             <div class="row no-gutters">
@@ -6,7 +7,15 @@
                     <div class="auth-container">
                         <h2><span>Cod</span>'Flix</h2>
                         <h3>Contact</h3>
-                        <form method="post" class="custom-form">
+                        <!--Grid column-->
+
+                        <ul class="list-unstyled mb-0 text-center text-danger">
+                            <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                                <p>8 Avenue de la Porte de Champerret
+                                    75017 Paris</p>
+                            </li>
+                        </ul>
+                        <form method="post" class="custom-form text-danger">
                             <div class="form-group">
                                 <label for="email">Adresse email</label>
                                 <input type="email" name="email" id="email" class="form-control" />
@@ -22,6 +31,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <span class="error-msg">
               <?= isset( $error_msg ) ? $error_msg : null; ?>
             </span>

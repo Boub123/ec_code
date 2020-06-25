@@ -224,6 +224,13 @@ CREATE TABLE `serie` (
 --
 ALTER TABLE `serie`
   ADD CONSTRAINT `serie_media_id_fk_media_id` FOREIGN KEY (`media_id`) REFERENCES `media` (`id`) ON DELETE CASCADE;
+
+--
+--add duration to serie
+--
+ALTER TABLE serie
+ADD duration varchar(6);
+
 --
 -- Indexes for table `serie`
 --

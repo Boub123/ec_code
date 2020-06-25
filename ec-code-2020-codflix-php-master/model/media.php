@@ -209,5 +209,78 @@ class Media {
         return $req->fetch();
     }
 
+    //delete media
+    public static function supMedia($user_id, $media_id)
+    {
+        // Open database connection
+        $db   = init_db();
+        $req = $db->prepare("DELETE FROM history WHERE user_id = :user_id AND media_id = :media_id");
+        $req->execute( array(
+            'user_id' => $user_id,
+            'media_id' => $media_id
+        ));
+        // Close databse connection
+        $db   = null;
+    }
+    // delete history
+    public static function deletedHistory( $user_id)
+    {
+        // Open database connection
+        $db   = init_db();
+        $req = $db->prepare("DELETE FROM history WHERE user_id = ?");
+        $req->execute( array( $user_id ));
+        // Close databse connection
+        $db   = null;
+    }
+
+    //function to add or update in history
+    public static function addMediaHistory($user_id, $media_id)
+    {
+        // database connection
+        $db   = init_db();
+        $req = $db->prepare("SELECT * FROM history where media_id = :media_id AND user_id = :user_id");
+        $req->execute( array(
+            'user_id' => $user_id,
+            'media_id'=> $media_id
+        ));
+        //verif if user visite the media
+        if( $req->rowCount() <= 0 )
+        {
+            // data insertion
+            $req  = $db->prepare( "INSERT INTO history (user_id, media_id, start_date, finish_date, watch_duration) VALUES (:user_id, :media_id, :start_date, :finish_date, :watch_duration)" );
+            $req->execute( array(
+                'user_id' => $user_id,
+                'media_id' => $media_id,
+                'start_date' => date("Y-m-d H:i:s"),
+                'finish_date' => date("Y-m-d H:i:s"),
+                'watch_duration' => '0'
+            ));
+        }
+        else
+        {
+            //updating colone
+            $req = $db->prepare("UPDATE history SET finish_date = :finish_date WHERE user_id = :user_id AND media_id = :media_id");
+            $req->execute( array(
+                'finish_date' => date("Y-m-d H:i:s"),
+                'user_id' => $user_id,
+                'media_id' => $media_id
+            ));
+        }
+        // Close databse connection
+        $db   = null;
+    }
+    //fetch media
+    public static function getMediasVisited($user_id)
+    {
+
+        $db   = init_db();
+        $req  = $db->prepare( "SELECT * FROM history WHERE user_id = ? ORDER BY finish_date DESC" );
+        $req->execute( array( $user_id ));
+        // Close databse connection
+        $db   = null;
+        return $req->fetchAll();
+
+    }
+
 
 }

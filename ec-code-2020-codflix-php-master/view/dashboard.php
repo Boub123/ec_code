@@ -19,6 +19,7 @@
         <div class="sidebar-menu">
           <ul>
             <li class="active"><a href="index.php">Médias</a></li>
+            <li class="active"><a href="index.php?action=history">Mon historique</a></li>
             <li class="active"><a href="http://localhost/ec_code/ec-code-2020-codflix-php-master/view/serieView.php">Séries</a></li>
             <li><a href="index.php?action=contact">Nous contacter</a></li>
             <li><a href="index.php?action=account">Mon Compte</a></li>

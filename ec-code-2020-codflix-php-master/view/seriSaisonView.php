@@ -66,13 +66,18 @@ try{
         <div class="content p-4 mb-4">
             <?php while($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
                 <div class="card">
+                    <div class="embed-responsive embed-responsive-21by9">
                     <iframe allowfullscreen="allowfullscreen"  frameborder="0"
                             src="<?= $row['stream_url']; ?>" ></iframe>
-                    <div class="card-body">
-                        <h5 class="card-title"><?php echo htmlspecialchars($row['title']); ?></h5>
-                        <p class="card-text"><?php echo htmlspecialchars($row['summary']); ?></p>
-                        <p class="card-text"><small class="text-muted">Saison : <?php echo htmlspecialchars($row['season']); ?> Episode : <?php echo htmlspecialchars($row['episode']); ?></small></p>
                     </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-danger">Titre : <?php echo htmlspecialchars($row['title']); ?>  <p class="card-text"><small class="text-muted">Saison : <?php echo htmlspecialchars($row['season']); ?> Episode : <?php echo htmlspecialchars($row['episode']); ?></small></p></h5>
+                        <h5 class="card-title text-danger">Durée : <?php echo htmlspecialchars($row['duration']); ?> </h5>
+                        <h5 class="card-title text-danger">Description : </h5>
+                        <p class="card-text bg-light"><?php echo htmlspecialchars($row['summary']); ?></p>
+                        <a href="<?php echo htmlspecialchars($row['stream_url']); ?>"><h5 class="card-title text-danger">Lien YouTube</h5></a>
+                    </div>
+
                 </div>
             <?php endwhile; ?>
 

@@ -67,7 +67,7 @@ try{
                     <div class="card-body">
                         <h5 class="card-title"><?php echo htmlspecialchars($row['title']); ?></h5>
                         <p class="card-text"><?php echo htmlspecialchars($row['summary']); ?></p>
-                        <a href="<?php echo "http://localhost/ec_code/ec-code-2020-codflix-php-master/view/seriSaisonView.php?var1=".$row['title']."&var2=".htmlspecialchars($row['summary'])."&var3=".htmlspecialchars($row['stream_url'])."&var5=".htmlspecialchars($row['season'])."" ?>" class="btn btn-primary">Voir la série</a>
+                        <a href="<?php echo "http://localhost/ec_code/ec-code-2020-codflix-php-master/view/seriSaisonView.php?var1=".$row['title']."&var2=".htmlspecialchars($row['summary'])."&var3=".htmlspecialchars($row['stream_url'])."&var5=".htmlspecialchars($row['season'])."" ?>" class="btn btn-danger">Voir la série</a>
                         <!--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
                     </div>
                 </div>

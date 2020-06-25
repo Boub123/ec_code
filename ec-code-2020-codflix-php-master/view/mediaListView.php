@@ -24,12 +24,12 @@
                             src="<?= $movie['trailer_url']; ?>" ></iframe>
                 </div>
             </div>
-            <div class="title"><?= $movie['title']; ?></div>
-            <div class="d-flex text-center justify-content-between"><?= substr($movie['release_date'],0,4)?></div>
+            <div class="title text-danger"><?= $movie['title']; ?></div>
+            <div class="text-center text-danger">Date de sortie : <?= substr($movie['release_date'],0,4)?></div>
         </a>
     <?php endforeach; ?>
 </div>
-    <h1 class="movies-header">Series</h1>
+    <h1 class="movies-header text-danger">Series</h1>
     <div class="media-list">
     <?php foreach( $series as $serie ): ?>
         <a class="item" href="index.php?media=<?= $serie['id']; ?>">
@@ -39,8 +39,8 @@
                             src="<?= $serie['trailer_url']; ?>" ></iframe>
                 </div>
             </div>
-            <div class="title"><?= $serie['title']; ?></div>
-            <div class="d-flex justify-content-between"><?= substr($serie['release_date'],0,4)?></div>
+            <div class="title text-center"><?= $serie['title']; ?></div>
+            <div class="text-center text-white"> Date de sortie : <?= substr($serie['release_date'],0,4)?></div>
         </a>
     <?php endforeach; ?>
 </div>

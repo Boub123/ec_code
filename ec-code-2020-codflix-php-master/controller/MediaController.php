@@ -71,6 +71,10 @@ function listMedia()
 
 // function to list details of medias, and series
 function details(){
+    //for adding media to history
+    $user_id = isset($_SESSION['user_id']) ?$_SESSION['user_id'] : false;
+    Media::addMediaHistory($user_id, $_GET['media']);
+
     $media = Media::details($_GET['media']);
     $getGenre = Media::getGenreById($media['genre_id']);
     $genre = $getGenre['name'];
