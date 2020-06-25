@@ -13,7 +13,7 @@
 
 
   <body>
-    <div class="wrapper d-flex align-items-stretch">
+    <div class="wrapper d-flex align-items-stretch" id="mainContainer">
       <nav id="sidebar">
         <h2 class="title">Bienvenue</h2>
         <div class="sidebar-menu">
