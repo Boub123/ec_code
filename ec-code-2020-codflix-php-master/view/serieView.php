@@ -65,8 +65,8 @@ try{
                 <div class="card mb-3">
                     <img src="netflix.jpg" class="card-img-top container-fluid w-50 h-25" alt="..." >
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo htmlspecialchars($row['title']); ?></h5>
-                        <p class="card-text"><?php echo htmlspecialchars($row['summary']); ?></p>
+                        <h5 class="card-title text-danger"><?php echo htmlspecialchars($row['title']); ?></h5>
+                        <p class="card-text text-justify"><?php echo htmlspecialchars($row['summary']); ?></p>
                         <a href="<?php echo "http://localhost/ec_code/ec-code-2020-codflix-php-master/view/seriSaisonView.php?var1=".$row['title']."&var2=".htmlspecialchars($row['summary'])."&var3=".htmlspecialchars($row['stream_url'])."&var5=".htmlspecialchars($row['season'])."" ?>" class="btn btn-danger">Voir la série</a>
                         <!--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>-->
                     </div>
