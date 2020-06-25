@@ -150,4 +150,23 @@ class User {
     return $req->fetch();
   }
 
+    public function updateUser() {
+        $db   = init_db();
+        $req  = $db->prepare( "UPDATE user SET email = :email, password = :password WHERE id = :id;" );
+        $req->execute( array(
+            'email' => $this->getEmail(),
+            'password' => hash('sha256', $this->getPassword()),
+            'id' => $this->getId()
+        ));
+        // Close databse connection
+        $db   = null;
+    }
+    public function deleteUser() {
+        $db   = init_db();
+        $req  = $db->prepare( "DELETE FROM user WHERE id = ?" );
+        $req->execute( array( $this->getId() ));
+        // Close databse connection
+        $db   = null;
+    }
+
 }

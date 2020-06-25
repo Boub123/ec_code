@@ -8,10 +8,25 @@ require_once( 'model/media.php' );
 
 function mediaPage() {
 
-  $search = isset( $_GET['title'] ) ? $_GET['title'] : null;
-  $medias = Media::filterMedias( $search );
+  //$search = isset( $_GET['title'] ) ? $_GET['title'] : null;
+  //$medias = Media::filterMedias( $search );
   //var_dump($medias);
+    listMedia();
 
-  require('view/mediaListView.php');
 
+}
+
+function listMedia()
+{
+    $search = isset( $_GET['title'] ) ? $_GET['title'] : null;
+    $medias = Media::filterMedias( $search );
+    if(!empty($search))
+    {
+        $medias = Media::filterMedias($search);
+    }else
+        {
+            $series = Media::showAllMediasByType("série");
+            $movies = Media::showAllMediasByType("film");
+        }
+    require('view/mediaListView.php');
 }

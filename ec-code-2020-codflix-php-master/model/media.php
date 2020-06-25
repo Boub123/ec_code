@@ -93,7 +93,8 @@ class Media {
     // Open database connection
     $db   = init_db();
 
-    $req  = $db->prepare( "SELECT * FROM media WHERE title like ? ORDER BY release_date DESC" );
+    //$req  = $db->prepare( "SELECT * FROM media WHERE title like ? ORDER BY release_date DESC" );
+    $req  = $db->prepare( "SELECT * FROM media WHERE title like ? ORDER BY title" );
     $req->execute( array( '%' . $title . '%' ));
 
     // Close databse connection
@@ -102,5 +103,16 @@ class Media {
     return $req->fetchAll();
 
   }
+    //get medias by type
+    public static function showAllMediasByType( $type ) {
+        // Open database connection
+        $db   = init_db();
+        // Show movies or tv shows from last id to first id (from new inserts to old inserts).
+        $req  = $db->prepare( "SELECT * FROM media WHERE type = ? ORDER BY id DESC");
+        $req->execute( array( $type ));
+        // Close database connection
+        $db   = null;
+        return $req->fetchAll();
+    }
 
 }

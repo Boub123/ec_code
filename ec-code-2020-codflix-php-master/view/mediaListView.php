@@ -13,19 +13,52 @@
     </div>
 </div>
 
+<?php if(empty($search)):?>
+<h1 class="movies-header">Films</h1>
 <div class="media-list">
-    <?php foreach( $medias as $media ): ?>
-        <a class="item" href="index.php?media=<?= $media['id']; ?>">
+    <?php foreach( $movies as $movie ): ?>
+        <a class="item" href="index.php?media=<?= $movie['id']; ?>">
             <div class="video">
                 <div>
                     <iframe allowfullscreen="" frameborder="0"
-                            src="<?= $media['trailer_url']; ?>" ></iframe>
+                            src="<?= $movie['trailer_url']; ?>" ></iframe>
                 </div>
             </div>
-            <div class="title"><?= $media['title']; ?></div>
+            <div class="title"><?= $movie['title']; ?></div>
         </a>
     <?php endforeach; ?>
 </div>
+    <h1 class="movies-header">Series</h1>
+    <div class="media-list">
+    <?php foreach( $series as $serie ): ?>
+        <a class="item" href="index.php?media=<?= $serie['id']; ?>">
+            <div class="video">
+                <div>
+                    <iframe allowfullscreen="" frameborder="0"
+                            src="<?= $serie['trailer_url']; ?>" ></iframe>
+                </div>
+            </div>
+            <div class="title"><?= $serie['title']; ?></div>
+        </a>
+    <?php endforeach; ?>
+</div>
+<?php endif;?>
+<?php if (!empty($search)): ?>
+    <h1 class="search-header">La rechercher : <span style="color: red;"><?php echo $search; ?></span></h1>
+    <div class="media-list">
+        <?php foreach( $medias as $media ): ?>
+            <a class="item" href="index.php?media=<?= $media['id']; ?>">
+                <div class="video">
+                    <div>
+                        <iframe allowfullscreen="" frameborder="0"
+                                src="<?= $media['trailer_url']; ?>" ></iframe>
+                    </div>
+                </div>
+                <div class="title"><?= $media['title']; ?></div>
+            </a>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
 
 
 <?php $content = ob_get_clean(); ?>
