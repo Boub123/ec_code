@@ -37,11 +37,9 @@ function details(){
     $getGenre = Media::getGenreById($media['genre_id']);
     $genre = $getGenre['name'];
 
-<<<<<<< Updated upstream
     require('view/detailsMediasView.php');
-=======
     $detailStream = false;
-    //try to catch number of saison and episode
+    /*//try to catch number of saison and episode
     if($media['type'] == 'série')
     {
         $seasons = Media::getsaisonsByMediaId($media['id']);
@@ -56,7 +54,7 @@ function details(){
         {
             $episodes = Media::getepisodesByMediaId($media['id'], $_GET["season"]);
         }
-    }
+    }*/
     require_once('view/detailsMediasView.php');
->>>>>>> Stashed changes
+
 }
