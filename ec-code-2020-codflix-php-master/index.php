@@ -27,6 +27,7 @@ if (isset($_GET['action'])):
         else require('view/contactView.php');
 
 
+
     // Redirect to login or sign up form ONLY if no user is logged on. Default: redirect to main homepage.
   elseif (!$user_id):
     switch( $_GET['action']):
