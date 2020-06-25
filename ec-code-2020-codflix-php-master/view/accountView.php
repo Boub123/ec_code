@@ -1,14 +1,22 @@
-<?php ob_start(); ?>
+<?php ob_start();
+?>
 
 <div class="col-md-12 full-height bg-white">
     <div class="auth-container">
         <h2><span>Cod</span>'Flix</h2>
-        <h3>Administrer mon compte</h3>
+        <h3>Administrer mon compte (cette page sert à changer de mail/motpass)</h3>
+
         <form method="post" class="custom-form">
+             <span class="error-msg">
+              <?= isset( $error_msg ) ? $error_msg : null; ?>
+            </span>
+            <span class="success-msg">
+              <?= isset( $success_msg ) ? $success_msg : null; ?>
+            </span>
             <div class="form-group">
                 <label for="email">Adresse email</label>
                 <input type="email" name="email" id="email" class="form-control" />
-                <!-- value="<?= $response['email']; ?>" -->
+                <?php //$response['email'];?>
             </div>
             <div class="form-group">
                 <label for="password">Mot de passe actuel</label>
@@ -33,12 +41,7 @@
                     </div>
                 </div>
             </div>
-            <span class="error-msg">
-              <?= isset( $error_msg ) ? $error_msg : null; ?>
-            </span>
-            <span class="success-msg">
-              <?= isset( $success_msg ) ? $success_msg : null; ?>
-            </span>
+
         </form>
     </div>
 </div>

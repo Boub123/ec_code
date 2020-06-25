@@ -25,6 +25,7 @@
                 </div>
             </div>
             <div class="title"><?= $movie['title']; ?></div>
+            <div class="d-flex justify-content-between"><?= substr($movie['release_date'],0,4)?></div>
         </a>
     <?php endforeach; ?>
 </div>
@@ -39,6 +40,7 @@
                 </div>
             </div>
             <div class="title"><?= $serie['title']; ?></div>
+            <div class="d-flex justify-content-between"><?= substr($serie['release_date'],0,4)?></div>
         </a>
     <?php endforeach; ?>
 </div>
@@ -55,6 +57,7 @@
                     </div>
                 </div>
                 <div class="title"><?= $media['title']; ?></div>
+                <div class="d-flex justify-content-between"><?= substr($media['release_date'],0,4)?></div>
             </a>
         <?php endforeach; ?>
     </div>
