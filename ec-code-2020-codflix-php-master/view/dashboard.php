@@ -37,7 +37,7 @@
             </button>
           </div>
         </div>
-        <div class="content p-4">
+        <div class="content p-4 mb-4">
           <?= $content; ?>
         </div>
         <footer>Copyright Cod'Flix</footer>

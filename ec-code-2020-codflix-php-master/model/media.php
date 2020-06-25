@@ -115,4 +115,26 @@ class Media {
         return $req->fetchAll();
     }
 
+    public static function details( $id )
+    {
+
+        //    // Open database connection
+        $db   = init_db();
+        $req  = $db->prepare( "SELECT * FROM media WHERE id = ?" );
+        $req->execute( array( $id ));
+         // Close databse connection
+        $db   = null;
+
+        return $req->fetch();
+    }
+        public static function getGenreById( $id )
+    {
+            // Open database connection
+         $db   = init_db();
+         $req  = $db->prepare( "SELECT name FROM genre WHERE id = ?" );    $req->execute( array( $id ));
+         // Close databse connection
+        $db   = null;
+        return $req->fetch();
+    }
+
 }
