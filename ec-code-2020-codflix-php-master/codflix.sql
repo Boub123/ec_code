@@ -194,14 +194,48 @@ ALTER TABLE `cles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for table `media`
+-- Constraints for table `cles`
 --
 ALTER TABLE `cles`
   ADD CONSTRAINT `cles_user_id_fk_user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE;
 
-
+--
+-- Add new colone to user
+--
 ALTER TABLE `user`
 ADD active varchar(1 NOT NULL );
+
+--
+--New table for series
+--
+
+DROP TABLE IF EXISTS `serie`;
+CREATE TABLE `serie` (
+  `id` int(11) NOT NULL ,
+  `media_id` int(11) NOT NULL,
+  `season` int(2) NOT NULL,
+  `episode` int(3) NOT NULL,
+  `title` varchar(250) NOT NULL,
+  `summary` longtext NOT NULL,
+  `stream_url` varchar(250) NOT NULL,
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+--
+--Alter table
+--
+ALTER TABLE `serie`
+  ADD CONSTRAINT `serie_media_id_fk_media_id` FOREIGN KEY (`media_id`) REFERENCES `media` (`id`) ON DELETE CASCADE;
+--
+-- Indexes for table `serie`
+--
+ALTER TABLE `serie`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `serie_media_id_fk_media_id` (`media_id`);
+
+--
+-- Constraints for table `serie`
+--
+ALTER TABLE `serie`
+  ADD CONSTRAINT `serie_media_id_fk_media_id` FOREIGN KEY (`media_id`) REFERENCES `media` (`id`) ON DELETE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

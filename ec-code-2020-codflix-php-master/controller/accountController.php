@@ -13,10 +13,12 @@ function accountPage(){
 }
 
 
-function updateAccount( $post ) {
+function updateAccount( $post )
+{
     $user_id = $_SESSION['user_id'];
     $email = $post['email'];
     $password = hash('sha256', $post['password']); // Hash input password to compare with the hashed password within DB.
+    //$password =  $post['password']; // Hash input password to compare with the hashed password within DB.
     $newPassword = $post['newPassword'];
     $newPasswordConfirm = $post['newPasswordConfirm'];
     $user = new User();
@@ -75,4 +77,8 @@ function deleteAccount($post){
     }
     require('view/accountView.php');
 }
+
+//require('view/accountView.php');
+
+
 ?>
