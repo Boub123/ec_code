@@ -53,9 +53,9 @@ function signUp($post)
         {
             $error_msg = "Cette adresse mail est déjà utilisée.";
         }
-        elseif (strlen($password) < 6) // If password input length is less than 6 chars, show error.
+        elseif (strlen($password) < 5) // If password input length is less than 6 chars, show error.
         {
-            $error_msg = "Mot de passe incorrect. Min. 6 caractères.";
+            $error_msg = "Mot de passe incorrect. Min. 5 caractères.";
         }
         elseif ($password != $password_confirm) // If both password don't match, show error.
         {

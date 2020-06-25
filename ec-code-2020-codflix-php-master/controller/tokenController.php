@@ -6,12 +6,14 @@ function tokenPage() {
     $response = getTokenByToken($token);
     // Check if the token exists into the DB.
     if (!$response){
-        var_dump("cles non valide");
+        $error_msg = "cle non valide";
     }
     else{
         activateAccount($token);
-        var_dump("Votre compte est désormais activé.");
+        $success_msg = "Votre compte est désormais activé.";
     }
+
+    require ('view/tokenView.php');
 }
 
 ?>

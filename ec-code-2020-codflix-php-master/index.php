@@ -39,9 +39,11 @@ if (isset($_GET['action'])):
 
 
         case 'signup':
+
             if(!empty($_POST)) signUp($_POST);
             else signupPage();
-            break;
+
+        break;
 
         default:
             homePage();
@@ -56,6 +58,15 @@ else:
 
         case 'account':
             accountPage();
+            if ( !empty ($_POST) && isset($_POST['Delete'])){
+                deleteAccount($_POST);
+            }
+            elseif (!empty ($_POST) && isset($_POST['Valider'])){
+                updateAccount($_POST);
+            }
+            else{
+                accountPage();
+            }
             break;
 
         default:
